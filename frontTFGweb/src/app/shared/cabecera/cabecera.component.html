@@ -1,0 +1,90 @@
+
+
+<div >
+
+    <div class="container-fluid minav m-0 p-0" *ngIf="ruta=='perfilAmigo'">
+        <ul class="nav   justify-content-between" id="myTab">
+            <li class="nav-item ">
+                <a class="nav-link " id="home-tab"  (click)="goBack()"><i
+                        class="bi bi-arrow-left textopinaazul"></i> </a>
+            </li>
+            <li class="nav-item">
+                <small class="nav-link disabled"> @{{nomUser}}</small>
+            </li>
+            <li class="nav-item">
+
+            </li>
+           
+        </ul>
+
+    </div>
+    <div class="container minav" *ngIf="ruta.substring(0,9)=='like-view'">
+        <ul class="nav   justify-content-between" id="myTab">
+            <li class="nav-item ">
+                <a class="nav-link " id="home-tab" data-toggle="tab" (click)="goBack()"><i
+                        class="bi bi-arrow-left textopinaazul"></i> </a>
+            </li>
+            <li class="nav-item">
+                <small class="nav-link disabled"> Likes</small>
+            </li>
+           
+        </ul>
+
+    </div>
+    <div class="container minav" *ngIf="ruta=='publicar'">
+        <ul class="nav   justify-content-between" id="myTab">
+            <li class="nav-item ">
+                <a class="nav-link " id="home-tab" data-toggle="tab" [routerLink]="['/noticias']"><i
+                        class="bi bi-x-lg textopinaazul"></i> </a>
+            </li>
+            <li class="nav-item">
+                <small class="nav-link disabled"> Subir post</small>
+            </li>
+            <li class="nav-item">
+                <button type="button" >
+                    <p class="nav-link" style="color:#36d4ba;" role="button" id="contact-tab" (click)="publicarPost()" routerLinkActive="active">
+                        Publicar</p>
+
+                </button>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="container minav" *ngIf="ruta=='perfil'">
+        <ul class="nav   justify-content-between" id="myTab">
+            <li class="nav-item ">
+                
+                        <img src="/assets/pina.png" alt="">
+            </li>
+            <li class="nav-item">
+                <small class="nav-link disabled"> @{{nomUser}}</small>
+            </li>
+
+            <li class="nav-item settings"   >
+                <i *ngIf="settings" class="bi bi-gear" (click)="abrirSettings()"></i>
+            </li>
+
+           
+        </ul>
+
+    </div>
+
+
+    <div class="container minav" *ngIf="ruta=='noticias'">
+        <ul class="nav   justify-content-between" id="myTab">
+            <li class="nav-item ">
+                
+                        <img src="/assets/pina.png" alt="">
+            </li>
+            <li class="nav-item">
+                <small class="nav-link disabled">SocialShare</small>
+            </li>
+            <li class="nav-item ">
+            </li>
+        </ul>
+
+    </div>
+</div>
+<!-- <i role="button" class="bi bi-box-arrow-right arribaDerecha"></i> -->

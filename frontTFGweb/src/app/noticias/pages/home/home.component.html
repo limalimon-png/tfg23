@@ -1,0 +1,27 @@
+<!-- cabecera -->
+<app-cabecera></app-cabecera>
+<br><br>
+<!-- infinite scroll top -->
+
+<div id="infiniteScrollTop" class="w-100" [hidden]="scrollable" >
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="spinner-grow text-primary spinner-border-sm"
+        role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+</div>
+
+<!-- TODO: hacer mensajito cuando ha terminado de ver haciqa atras lo del dia de hoy -->
+<!-- TODO: hacer mensajito cuando no queden publicaciones -->
+
+<app-listado-noticias [noticias]="noticias" ></app-listado-noticias>
+
+
+<app-infinite-scroll (results)="add($event)"></app-infinite-scroll>
+<app-sidebar *ngIf="menu" ></app-sidebar>
+    <app-menu *ngIf="!menu"   class="fijo"></app-menu>
+
+    

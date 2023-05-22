@@ -1,0 +1,8 @@
+#infiniteScrollTop{
+    height: 15%;
+    overflow-y: scroll;
+}
+#infiniteScrollbottom{
+    height: 25%;
+    overflow-y: scroll;
+}

@@ -1,0 +1,181 @@
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  }
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bg: linear-gradient(to top,#010329,#000005);
+    --color-glass:linear-gradient(to left,#142544,#1a9092);
+    --color-water:linear-gradient(to left,#142544,#1b6d6e);
+}
+
+body{
+    background-image:var(--color-bg);
+    /* min-height: 100vh; */
+    max-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    overflow: hidden;
+}
+
+.flower{
+    position: relative;
+}
+
+.flower__glass{
+    width:20px;
+    height: 30px;
+    background-image: var(--color-glass);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    opacity: .8;
+    position: relative;
+}
+
+.flower__glass::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #182843;
+    width: 100%;
+    height: 51px;
+}
+
+
+
+.f-wrapper{
+    position: absolute;
+    left: 8px;
+    bottom: 2px;
+}
+
+.f-wrapper--2{
+    left: 13px;
+    bottom: 5%;
+    transform-origin: 10% left;
+    transform: rotate(20deg);
+}
+
+.f-wrapper--3{
+    left: 5px;
+    bottom: 5%;
+    transform-origin: 10% left;
+    transform: rotate(-10deg);
+}
+
+.f-wrapper--3 .flower__line{
+    height: 45px;
+    position: relative;
+}
+
+.f-wrapper--3 .flower__line::after{
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    transform: translate(-69%,-30%) rotate(-5deg);
+    border-radius:10px 10px 0 0;
+    border: 2px solid  #104d4e;
+    border-bottom: transparent;
+    border-left: transparent;
+}
+
+.f-wrapper--3 .flower__line::before{
+    content: '';
+    position: absolute;
+    left:-40%;
+    top: -1%;
+    width: 6px;
+    height: 2px;
+    transform-origin: right;
+    transform: translate(-100%,-80%) rotate(-20deg);
+    background-color: #104d4e;
+    border-radius: 2px;
+}
+
+.f-wrapper--3 .flower__line{
+    background-image: linear-gradient(to top,#142544,#104d4e);
+}
+
+
+.f-wrapper--2 .flower__line{
+    height: 45px;
+}
+
+.f-wrapper--2 .f{
+    transform: translateX(-50%) rotate(20deg);
+}
+
+.f-wrapper--3 .f{
+    transform: translate(-350%,-50%) rotate(-120deg);
+}
+
+.f-wrapper--2 .flower__leaf:not(:first-child){
+    width: 3.8px;
+    height: 10px;
+    background-image: linear-gradient(to bottom, #ff43b6 ,#c22887, #1a233a 99%);
+}
+
+.f-wrapper--3 .flower__leaf:not(:first-child){
+    width: 3.8px;
+    height: 10px;
+    background-image: linear-gradient(to bottom, #ad2be0 ,#712291, #1a233a 99%);
+}
+
+.f-wrapper--3 .flower__leaf--1{
+    width: 8px;
+    height: 10px;
+    bottom: 2px;
+    background-color: #ad2be0;
+}
+
+.f-wrapper--2 .flower__leaf--1{
+    width: 8px;
+    height: 10px;
+    bottom: 2px;
+    background-color: #de118b;
+}
+
+.f-wrapper--2 .f .flower__leaf--8{
+    width: 10px;
+    height: 9px;
+    bottom: 3px;
+    left: -30%;
+    transform: rotate(-50deg);
+    background-image: linear-gradient(to left bottom, #ff43b6 ,#4d1337);;
+}
+
+.f-wrapper--3 .f .flower__leaf--8{
+    width: 10px;
+    height: 9px;
+    left: -10% !important;
+    background-image: linear-gradient(to left bottom, #ad2be0 ,#712291);;
+}
+
+.flower__line{
+    width: 2px;
+    height: 56px;
+    background-image: linear-gradient(to left top,#82fdff 20%,#142544,#104d4e);
+    border-radius: 4px;
+}
+
+.f{
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+    width: 2px;
+    height: 2px;
+}
+

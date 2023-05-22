@@ -1,0 +1,193 @@
+
+
+
+<ng-container *ngIf="!user">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="spinner-grow text-primary spinner-border-sm" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-primary spinner-border-sm" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-primary spinner-border-sm" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="user"  class="mb-4">
+  <app-cabecera [nomUser]="user.nombre!" (abrirOpt)="settings()" ></app-cabecera>
+  <div>
+
+  </div>
+
+<!-- todo: diseño likes, login y register, creacion de seguridad, quizas implementar google -->
+    <div class="container mt-3 h">
+        <div class="row d-flex align-items-center">
+            <div class="col-3">
+                <img [src]="imgs |image" alt="Profile Picture" class="img-mediana rounded-circle" (load)="textarea.click()" >
+            </div>
+
+            <div class="col-9 user ">
+                <div class="d-flex flex-column" >
+                  <textarea #textarea readonly    rows="2" [value]="user.desc||''"></textarea>
+            </div>
+            </div>
+        </div>
+
+       
+
+        <div class="row container mt-4 overflow-hidden alinear">
+            <!-- TODO: al clickar en los iconos cambiar la informacion -->
+            <div class="text-center">
+              <button class="badge rounded-pill  p-2 m-2 " [ngClass]="cambiarVista ? 'colorpinaamarilla':'colorpinalila'" >
+                <i class="bi bi-grid icon-lg " style="color:rgb(255, 255, 255)" (click)="viewChange(true)"></i>
+              </button>
+              <button *ngIf="!perfilAmigo" class="badge rounded-pill  p-2 m-2" [ngClass]="viewActual=='post' ?'colorpinarosa':'colorpinaverde'">
+                <i class="bi bi-images icon-lg" (click)="misPost()"></i>
+              </button>
+              <button *ngIf="!perfilAmigo" class="badge rounded-pill  p-2 m-2" [ngClass]="viewActual=='likes' ?'colorpinarosa':'colorpinaverde'" (click)="verPostconLike()">
+                <i class="bi bi-heart icon-lg"></i>
+              </button>
+              <button *ngIf="!perfilAmigo" class="badge rounded-pill  p-2 m-2"  [ngClass]="viewActual=='guardados' ?'colorpinarosa':'colorpinaverde'" (click)="verGuardados()">
+                <i class="bi bi-bookmark icon-lg"></i>
+              </button>
+            </div>
+          </div>
+        <hr class="my-4">
+        <!-- TODO: poner un spiner de carga hasta que aparezcan -->
+        <!-- TODO: poner mensaje si no hay ninguno -->
+
+        <!-- Posts -->
+        
+      
+        <div class="row g-0 "  style=" padding-bottom: 70px;" *ngIf="!cambiarVista "  >
+           <app-galeria-imagen class="design" [images]="images" (imageSelected)="verGrande($event,media)"></app-galeria-imagen>
+            <h1 *ngIf="images.length<=0"  class="text-center">No hay publicaciones todavía</h1>
+           <app-flor *ngIf="animacionFlores()" class="miflor" ></app-flor>
+
+        </div>
+    
+    </div>
+
+    
+    <ng-container *ngIf="viewActual=='likes' && cambiarVista" >
+        <app-listado-noticias [noticias]="idPostConLike"[like]="true" ></app-listado-noticias>
+    </ng-container>
+
+    <ng-container *ngIf="viewActual=='guardados' && cambiarVista">
+        <app-listado-noticias [noticias]="postGuardado" [guardados]="true"></app-listado-noticias>
+      </ng-container>
+
+    <ng-container *ngIf="viewActual=='post' && cambiarVista">
+        <app-listado-noticias [noticias]="post"></app-listado-noticias>
+    </ng-container>
+
+    <!-- <ng-container *ngIf="cambiarVista"  >
+        <app-listado-noticias [noticias]="post"></app-listado-noticias>
+    </ng-container> -->
+
+        <!-- TODO: hacer al clickar la imagen verlas en grande (lista de noticias para verlo) -->
+        <!-- TODO: tienen que cargar los sliders y mirar si podemos controlar los tamaños -->
+        <!-- TODO: En ese listado tienne que cargar todos los datos (like, comentarios,etc...) -->
+
+    
+
+
+
+   
+
+        <app-infinite-scroll [user]="userId" (results)="actualizarInfo($event)"></app-infinite-scroll>
+    </ng-container>
+
+    <app-menu *ngIf="!menu"  class="fijo"></app-menu>
+    <app-sidebar *ngIf="menu"  [visible]="true" (Editar)="open(content)"></app-sidebar>
+<!-- todo:margen para los botones, y mirar el scroll y potque carga el home tambien -->
+
+<!-- Todo:cambiar el orden a descendente de las publicaciones guardadas -->
+
+ <!-- modal editar perfil -->
+ <ng-template #content let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Actualizar perfil</h4>
+      <button  class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+      <form (submit)="enviar($event)">
+
+
+          <div class="mb-3 text-center">
+
+              <label for="imga" role="button">
+                  <div class="col-12">
+                      <img [src]="imgs |image" alt="Profile Picture" class="img-grande rounded-circle ">
+
+                  </div>
+                  <div class="col-12">
+
+                      <i class="form-text">Cambiar imagen</i>
+
+                  </div>
+
+              </label>
+              <input type="file" class="form-control" name="imga" id="imga" hidden #image
+                  (change)="actualizar(image)">
+              <!-- <div class="col-12">
+                  <button type="button" class="btn btn-danger btn-radius" (click)="quitarImagen(image)">
+                      <i class="bi bi-x-lg">Quitar imagen</i>
+                  </button>
+              </div> -->
+          </div>
+
+          <div class="mb-3">
+
+              <label for="nomUser">Nombre usuario</label>
+              <input type="text" class="form-control" id="nomUser" [value]="user.nombre" #name>
+
+          </div>
+          <div class="mb-3">
+              <label for="desc">Descripción</label>
+              <textarea name="" id="desc" rows="3" class="border form-control" placeholder="Descripción"
+                  #desc>{{user.desc}}</textarea>
+          </div>
+
+
+      </form>
+  </div>
+  <div class="modal-footer">
+
+      <button  id="guardar" type="button" class="btn  btn-radius colorpinaverde" (click)="modal.close({image,name,desc})">Guardar</button>
+  </div>
+</ng-template>
+
+
+
+<!-- modal  publicaciones -->
+
+<ng-template #media let-modal>
+  <div class="modal-header ">
+    <div class="row w-100" style="padding-left: 48px;">
+      
+
+        <div class="col-3">
+          <img [src]="imgs" alt="Avatar" width="50" height="50" class="rounded-circle me-3">
+        </div>
+        <div class="col-7 d-flex justify-content-center">
+          <h5 class="d-flex justify-content-center flex-column">{{user.nombre }}</h5>
+        </div>
+      </div>
+      <div class="col-2 d-flex align-items-center">
+        <button type="button" class="btn-close m-0" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+    </div>
+  
+  <div class="modal-body d-flex justify-content-center align-items-center">
+    <div class="post-container d-flex flex-column align-items-center">
+      <app-noticia (unliked)="quitarDeFavoritos($event)" (unsaved)="quitarDeGuardados($event)" [post]="prueba" [unica]="true" [modal]="true"></app-noticia>
+      <div class="navigation d-flex justify-content-between align-items-center">
+        <i class="bi bi-chevron-compact-left left" role="button" (click)="atras(media)"></i>
+        <i class="bi bi-chevron-compact-right right" role="button" (click)="adelante(media)"></i>
+      </div>
+    </div>
+  </div>
+</ng-template>

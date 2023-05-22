@@ -1,0 +1,54 @@
+/* Estilos para la barra lateral */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: auto;
+    height: 100%;
+    /* background-color: #f8f9fa; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+  }
+  
+  .sidebar ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 7px;
+    list-style: none;
+  }
+  
+  .sidebar .nav-item {
+    margin: 0;
+  }
+  
+  .sidebar .nav-link {
+    color: #495057;
+    display: block;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .sidebar .nav-link i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .sidebar .nav-link.active {
+    color: #36ccd4;
+    background-color: transparent;
+  }
+  
+  .sidebar .nav-link:hover {
+    color: #36d4ba;
+    background-color: #e9ecef;
+  }
+  
+  /* Estilos para el contenido principal */
+  .main-content {
+    margin-left: 200px;
+  }
+  

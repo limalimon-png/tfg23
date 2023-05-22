@@ -1,0 +1,205 @@
+.post {
+    margin-top: 10px;
+
+    max-width: 500px;
+
+    padding: 2px;
+    border-radius: 50px !important;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+ion-item {
+
+    width: auto;
+    height: auto;
+
+}
+.card-footer{
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    background-color: #ffffff;
+
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-radius: 50px;
+   
+  
+    border: none;
+    box-shadow: none;
+}
+
+
+#fondo {
+    background-color: rgba(255, 255, 255, 0.605);
+    z-index: -1;
+}
+
+.image-slide {
+    width: 100%;
+    height: 250px;
+
+    /* // background-color: red; */
+
+    /* Full height */
+    /* // height: 100%;  */
+
+    /* Imagen centrada y colocada de forma elegante */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#cabecera {}
+
+#video {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 250px;
+    z-index: -10;
+    visibility: visible;
+}
+
+h2 {
+    color: white;
+    text-shadow: 4px 4px 4px #333;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.cuadrada {
+    /* 1080 x 1080 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tam{
+    /* height: 80vh; */
+}
+.adpImg{
+    /* 1080 x 1080 */
+    width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    background-color: rgb(234, 241, 246) ;
+}
+.horizontal{
+    /* 1080 x 566 */
+    width: 100%;
+    max-width: 100%; /* ajusta el ancho máximo según tus necesidades */
+    object-fit: cover; /* ajusta la imagen para que cubra todo el contenedor */
+}
+
+.height{
+    height: 80vh;
+}
+
+.vertical{
+    /* 1080 x 1350 */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.todo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.containerImg{
+  /*
+    max-width: 1080px; 
+    max-height: 1350px;
+   min-height: 450px;
+    height: clamp(450px, 50vh, 1350px);
+    margin: 0 auto;*/
+}
+/* ::ng-deep .carousel-item {
+    display: block !important;
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+    transition:all  1s;
+  }
+  
+  ::ng-deep .carousel-item.active {
+    position: relative;
+    transform: translateY(0);
+    opacity: 1;
+    top: 0;
+  } */
+ /* class under class */
+    /* .limpiar  {
+        carousel-control-opacity:0;
+     var($carousel-control-opacity, 0.5)
+    }
+        */
+
+
+
+/*   
+::ng-deep .carousel-control-prev {
+    opacity: 0;
+}
+::ng-deep .carousel-control-prev:hover {
+    opacity: 0;
+}
+::ng-deep .carousel-control-next:hover {
+    opacity: 0;
+}
+::ng-deep .carousel-control-next {
+    opacity: 0;
+} */
+
+
+  .picsum-img-wrapper img,
+.picsum-img-wrapper video {
+  /* ajusta este valor según tus necesidades */
+  max-width: 500px;
+object-fit: contain;
+}
+
+
+  
+ 
+
+
+ 
+
+::ng-deep .carousel-control-prev-icon,
+::ng-deep .carousel-control-next-icon {
+
+   transform: scale(1.2);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+::ng-deep .carousel-control-prev-icon:before,
+::ng-deep .carousel-control-next-icon:before {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+
+::ng-deep .carousel-control-prev-icon {
+  margin-left: 10px;
+  filter: drop-shadow(2px 0px 0px rgb(0, 0, 0));
+}
+
+::ng-deep .carousel-control-next-icon {
+    filter: drop-shadow(-2px 0px 0px rgb(0, 0, 0));
+  margin-right: 10px;
+}

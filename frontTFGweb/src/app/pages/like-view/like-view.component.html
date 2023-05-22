@@ -1,0 +1,31 @@
+<app-cabecera [volver]="routetoGoBack" ></app-cabecera>
+<div class="container">
+    <ul class="list-group w-70 mx-auto mt-4">
+      <div *ngIf="usuariosLiked.length != 0" >
+        <h2 class="text-center">likes: {{usuariosLiked.length}}</h2>
+        <hr>
+      </div>
+        <div class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of infoUser" (click)="goToProfile(item.nombre)">
+          
+            <img [src]="item.imagen" alt="Avatar" width="50" height="50" class="rounded-circle me-3 ">
+         
+          <p>
+            {{item.nombre}}
+          </p>
+
+          <button class=""></button>
+        </div>
+        
+
+      </ul>
+      <ng-container *ngIf="usuariosLiked.length == 0">
+        <div class="d-flex flex-column justify-content-center align-items-center mt-4">
+          <div class="text-center">
+            <h2 class="mb-3">Está todo muy tranquilo por aquí...</h2>
+            <p class="text-muted">No hay usuarios que hayan dado like a esta publicación, vuelve más tarde.</p>
+          </div>
+          <img src="assets/images/hamaca.png" alt="" class="img-fluid mt-3" style="max-width: 400px;">
+        </div>
+      </ng-container>
+      
+</div>

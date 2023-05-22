@@ -1,0 +1,20 @@
+<div class="d-flex flex-wrap ">
+    <div class="col-4" *ngFor="let item of images;let i = index" style="position: relative;">
+      <ng-container *ngIf="item.img.substring(item.img.lastIndexOf('.')+1)=='mp4';else foto" >
+        <div class="ratio ratio-1x1 containerImg">
+          <div class="likesitos">{{item.likes}} ❤️</div>
+          <video class="img-fluidT" (click)="enviar(i)">
+            <source [src]="item.img" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+        </div>
+      </ng-container>
+      <ng-template #foto>
+        <div class="containerImg">
+          <div class="likesitos">{{item.likes}} ❤️</div>
+          <img src="{{item.img}}" alt="Post Image" class="img-fluidT" (click)="enviar(i)">
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

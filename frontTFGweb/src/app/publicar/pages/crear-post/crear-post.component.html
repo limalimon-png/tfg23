@@ -1,0 +1,47 @@
+<app-cabecera class="w-100" (publicar)="publicar()"></app-cabecera>
+
+<br>
+
+<div class="container mt-4">
+
+  <form (submit)="enviar($event)">
+
+    <div class="mb-3 mt-4">
+      <label for="msg" class="form-label">Comentario:</label>
+      <input  type="text" class="form-control" maxlength="256" placeholder="" #mensaje (change)="actualizar()" >
+    </div>
+
+    <div class="text-center agregarMedios ">
+      <label for="files" role="button" class="btn  mb-3 btn-radius colorpinaverde">
+        <i class="bi bi-folder-plus me-2"></i>Agregar medios
+      </label>
+      <input type="file" id="files" name="files" multiple #media (input)="prueba()" hidden (change)="actualizar()">
+    </div>
+
+  </form>
+
+  <hr>
+
+  <div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
+    <div class="col" *ngFor="let file of files;let i = index">
+      <div class="card h-100">
+        <i class="bi bi-x-circle-fill delete-media" (click)="eliminar(i)"></i>
+        <ng-container *ngIf="file.type=='video/mp4'; else foto">
+          <video class="card-img-top" controls>
+            <source [src]="file.urlTemporal | image" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+        </ng-container>
+        <ng-template #foto>
+          <img [src]="file.urlTemporal | image" alt="Post Image" class="card-img card-img-top">
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+<app-menu *ngIf="!menu"  class="fijo"></app-menu>
+<app-sidebar *ngIf="menu"  [visible]="true"></app-sidebar>
+

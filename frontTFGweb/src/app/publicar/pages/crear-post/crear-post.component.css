@@ -1,0 +1,42 @@
+.mybtn {
+    background-color: rgb(97, 202, 124);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+   
+}
+
+.agregarMedios label{
+    transition: all 0.3s ease-in-out;
+}
+
+.agregarMedios label:hover {
+    background-color: #36d4b7;
+    transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+        
+    
+    
+}
+.card-img {
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+.agregarMedios{
+    margin-top:7vh
+}
+ 
+    @media (min-width: 992px){
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: calc(100% - 299px);
+        }
+    }
+    @media (min-width: 1400px){
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1101px;
+        }
+      }

@@ -1,0 +1,130 @@
+
+<ng-container *ngIf="!likeView" >
+<div *ngIf="!unica;else completo"  class="container ">
+  <div class="row justify-content-center ">
+    <div class="col-12 col-md-8 col-lg-6 ">
+      <div class="card my-3 post">
+        <div class="card-header p-3 ">
+          <div class="d-flex align-items-center" (click)="verPerfil()">
+           
+            
+            <img [src]="imagePerfil(noticia.usuario!._id!,noticia.usuario?.imagen!)" alt="Avatar" width="50" height="50" class="rounded-circle me-3 ">
+            <div>
+              <h5 class="mb-0">@{{noticia.usuario?.nombre}}</h5>
+            </div>
+          </div>
+        </div>
+        
+        <ngb-carousel [showNavigationIndicators]="!!(post.img!.length>1)" [showNavigationArrows]="!!(post.img!.length>1) && !modal">
+      
+             <ng-template    ngbSlide *ngFor="let item of post.img">
+
+            <div class="picsum-img-wrapper limpiar" >
+              <ng-container *ngIf="item.substring(item.lastIndexOf('.')+1)=='mp4'">
+                <video class="d-block w-100" controls >
+                  <source [src]="postImg(item)" type="video/mp4">
+                </video>
+              </ng-container>
+
+              <ng-container *ngIf="item.substring(item.lastIndexOf('.')+1)!='mp4'">
+                <img [src]="postImg(item)" alt="Random first slide" class="d-block w-100 " />
+              </ng-container>
+              
+            </div>
+            
+          </ng-template>
+        </ngb-carousel>
+        <div class="card-body p-3">
+          <div class="d-flex">
+            <div class="flex-grow-1">
+              <button type="button" class="btn btn-link p-0 m-2" (click)="darQuitarLike()">
+                <i class="bi textopinarosa"[ngClass]="daLike?'bi-heart-fill':'bi-heart'" ></i>
+              </button>
+              <button   class=" p-0 m-2" (click)="viewLikes()">
+               <p>{{like|| 0}} Likes</p>
+              </button> 
+            </div>
+            <button type="button" class="btn btn-link p-0 m-2" (click)="toogleGuardar()">
+              <i class="bi textopinalila"[ngClass]="postGuardado?'bi-bookmark-fill':'bi-bookmark'" ></i>
+            </button>
+          </div>
+          <div class="card-footer">
+            <p class="mb-0" *ngIf="noticia.mensaje!='' && noticia.mensaje!=null"><strong>@{{noticia.usuario?.nombre}}: </strong> {{noticia.mensaje}}</p>
+            <ng-container *ngIf="dias!=null" >
+            <p class="text-muted" *ngIf="dias==0" >Publicado: Hoy</p>
+            <p class="text-muted" *ngIf="dias==1" >Publicado: Ayer</p>
+            <p class="text-muted" *ngIf="dias>1" >Publicado: {{dias}} días</p>
+          </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<ng-template #completo>
+
+  <div class="row justify-content-center  tam">
+
+        
+        <!-- media -->
+        <ngb-carousel  [showNavigationIndicators]="!!(post.img!.length>1)" [showNavigationArrows]="!!(post.img!.length>1)">
+      
+             <ng-template    ngbSlide *ngFor="let item of post.img">
+              <!-- if post.img.lenght==1 them class limpiar -->
+
+            <div class="picsum-img-wrapper limpiar" >
+              <ng-container *ngIf="item.substring(item.lastIndexOf('.')+1)=='mp4'">
+                <video class="d-flex justify-content-center w-100" controls >
+                  <source [src]="postImg(item)" type="video/mp4">
+                </video>
+              </ng-container>
+
+              <ng-container *ngIf="item.substring(item.lastIndexOf('.')+1)!='mp4'" >
+                <div class="containerImg d-flex justify-content-center p-3" >
+
+                  <img [src]="postImg(item)" alt="Random first slide" [class]="posicionImg" class="adpImg" />
+                </div>
+              </ng-container>
+              
+            </div>
+            
+          </ng-template>
+         
+        </ngb-carousel>
+
+        <!-- comentarios -->
+        <div class="card-body p-4">
+          <div class="d-flex">
+            <div class="flex-grow-1">
+
+              <button type="button" class="btn btn-link p-0 m-2" (click)="darQuitarLike()">
+                <i class="bi textopinarosa"[ngClass]="daLike?'bi-heart-fill':'bi-heart'" ></i>
+              </button>
+
+              <button   class=" p-0 m-2" (click)="viewLikes()">
+               <p>{{like|| 0}} Likes</p>
+              </button> 
+
+            </div>
+            <button type="button" class="btn btn-link p-0 m-2" (click)="toogleGuardar()">
+              <i class="bi textopinalila"[ngClass]="postGuardado?'bi-bookmark-fill':'bi-bookmark'" ></i>
+            </button>
+          </div>
+          <div class="card-footer p-3"   >
+            <p class="mb-0" *ngIf="noticia.mensaje!='' && noticia.mensaje!=null" ><strong>@{{noticia.usuario?.nombre}}: </strong> {{noticia.mensaje}}</p>
+            <ng-container *ngIf="dias!=null" >
+              <p class="text-muted" *ngIf="dias==0" >Publicado: Hoy</p>
+              <p class="text-muted" *ngIf="dias==1" >Publicado: Ayer</p>
+              <p class="text-muted" *ngIf="dias>1" >Publicado: {{dias}} días</p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+  
+
+
+</ng-template>
+</ng-container>

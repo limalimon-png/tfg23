@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "7164ce21-d61e-4d22-89e1-ee25b69ade7a",
+		"name": "pruebasBack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "Patata@12",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "otraPrueba@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Patata@12",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "nombre",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "email",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "imagen",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "desc",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "otraPrueba",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "otraPrueba2@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Patata@12",
+							"type": "default"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/home/gmartinez/Documentos/av2.png"
+						},
+						{
+							"key": "desc",
+							"value": "aaaaaa",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verIconoUsuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5050/user/geticon/63f3276b184ddbdd11e08f78",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"geticon",
+						"63f3276b184ddbdd11e08f78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjVmMDQ4N2ZiMjI4YzNlOGM2YjE0NSIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmEyQGdtYWlsLmNvbSIsImRlc2MiOiJJbnRyb2R1Y2UgbGEgZGVzY3JpcGNpw7NuIiwiaW1hZ2VuIjoiYXYtMS5wbmcifSwiaWF0IjoxNjc3MDYyMjE2LCJleHAiOjE2Nzk2NTQyMTZ9.kRvFsVtdU9PwEej1RqTjBqhoukuhET_37_BqYmZWIn4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyNzZiMTg0ZGRiZGQxMWUwOGY3OCIsIm5vbWJyZSI6Imd1aWxsZXIiLCJlbWFpbCI6Im5vc2VAbm9zZS5jb20iLCJkZXNjIjoiSW50cm9kdWNlIGxhIGRlc2NyaXBjacOzbiIsImltYWdlbiI6IiJ9LCJpYXQiOjE2NzY4ODAwNzQsImV4cCI6MTY3OTQ3MjA3NH0._yV0hs0QmY-Uobdge7hghryxYwVur7GqbcEVEc52n7Y",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/get",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"get"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyNzZiMTg0ZGRiZGQxMWUwOGY3OCIsIm5vbWJyZSI6Imd1aWxsZXIiLCJlbWFpbCI6Im5vc2VAbm9zZS5jb20iLCJkZXNjIjoiSW50cm9kdWNlIGxhIGRlc2NyaXBjacOzbiIsImltYWdlbiI6IiJ9LCJpYXQiOjE2NzY4ODAwNzQsImV4cCI6MTY3OTQ3MjA3NH0._yV0hs0QmY-Uobdge7hghryxYwVur7GqbcEVEc52n7Y",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar Datos usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjVmMDQ4N2ZiMjI4YzNlOGM2YjE0NSIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmEyQGdtYWlsLmNvbSIsImRlc2MiOiJJbnRyb2R1Y2UgbGEgZGVzY3JpcGNpw7NuIiwiaW1hZ2VuIjoiYXYtMS5wbmcifSwiaWF0IjoxNjc3MDYyMjE2LCJleHAiOjE2Nzk2NTQyMTZ9.kRvFsVtdU9PwEej1RqTjBqhoukuhET_37_BqYmZWIn4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/gmartinez/Documentos/appsangular/back-red-social/back/assets/av2.png",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "otraPrueba3",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "otraPrueba3@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "desc",
+							"value": "prueba 4 actualizar",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gmartinez/Descargas/cat.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/update",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subir foto perfil",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjVmMDQ4N2ZiMjI4YzNlOGM2YjE0NSIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmEyQGdtYWlsLmNvbSIsImRlc2MiOiJJbnRyb2R1Y2UgbGEgZGVzY3JpcGNpw7NuIiwiaW1hZ2VuIjoiYXYtMS5wbmcifSwiaWF0IjoxNjc3MDYyMjE2LCJleHAiOjE2Nzk2NTQyMTZ9.kRvFsVtdU9PwEej1RqTjBqhoukuhET_37_BqYmZWIn4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/gmartinez/Documentos/appsangular/back-red-social/back/assets/av2.png",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "otraPrueba",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "otraPrueba2@gmail.com",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "desc",
+							"value": "prueba 1 actualizar",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gmartinez/Descargas/cat.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/user/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"user",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyYzI4MmMzZWNmNDNmNzNhMmJlZCIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmFAZ21haWwuY29tIiwiZGVzYyI6IkludHJvZHVjZSBsYSBkZXNjcmlwY2nDs24iLCJpbWFnZW4iOiJub21icmUifSwiaWF0IjoxNjc2OTgwODkxLCJleHAiOjE2Nzk1NzI4OTF9.IVJXGkhPQwiLwVvRtaYtPYUvS50OmOETKQCe9kWFZ08",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mensaje",
+							"value": "prueba7  2023",
+							"type": "default"
+						},
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyYzI4MmMzZWNmNDNmNzNhMmJlZCIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmFAZ21haWwuY29tIiwiZGVzYyI6IkludHJvZHVjZSBsYSBkZXNjcmlwY2nDs24iLCJpbWFnZW4iOiJub21icmUifSwiaWF0IjoxNjc2ODgwOTM2LCJleHAiOjE2Nzk0NzI5MzZ9.spivhKm2Q7fN1QT_1wDypWdyZKDOMQCbMGp8vsrtLVY",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/gmartinez/Documentos/appsangular/back-red-social/back/assets/av2.png"
+						},
+						{
+							"key": "algo",
+							"value": "algo",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyYzI4MmMzZWNmNDNmNzNhMmJlZCIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmFAZ21haWwuY29tIiwiZGVzYyI6IkludHJvZHVjZSBsYSBkZXNjcmlwY2nDs24iLCJpbWFnZW4iOiJub21icmUifSwiaWF0IjoxNjc2ODgwOTM2LCJleHAiOjE2Nzk0NzI5MzZ9.spivhKm2Q7fN1QT_1wDypWdyZKDOMQCbMGp8vsrtLVY",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "añadir imagen Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjYzZjMyYzI4MmMzZWNmNDNmNzNhMmJlZCIsIm5vbWJyZSI6Im90cmFQcnVlYmEiLCJlbWFpbCI6Im90cmFQcnVlYmFAZ21haWwuY29tIiwiZGVzYyI6IkludHJvZHVjZSBsYSBkZXNjcmlwY2nDs24iLCJpbWFnZW4iOiJub21icmUifSwiaWF0IjoxNjc2OTgwODkxLCJleHAiOjE2Nzk1NzI4OTF9.IVJXGkhPQwiLwVvRtaYtPYUvS50OmOETKQCe9kWFZ08",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gmartinez/Descargas/cat.jpg",
+							"disabled": true
+						},
+						{
+							"key": "mensaje",
+							"value": "prueba loader 3",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gmartinez/Descargas/flor.jpg",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gmartinez/Documentos/av2.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5050/posts/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"posts",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/posts/imagen/63f5c2827b94d892728f45a2/3ovwove875lefckemu.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"posts",
+						"imagen",
+						"63f5c2827b94d892728f45a2",
+						"3ovwove875lefckemu.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/posts/imagen/63f4b87776f547b76e9a69b5/3ovwovecryleck8owz.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"posts",
+						"imagen",
+						"63f4b87776f547b76e9a69b5",
+						"3ovwovecryleck8owz.png"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

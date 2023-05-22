@@ -1,0 +1,8 @@
+
+
+<div *ngFor="let item of noticias">
+
+    <app-noticia (unsaved)="quitarDeGuardados($event)" (unliked)="quitarDeFavoritos($event)" [post]="item"></app-noticia>
+    
+  
+</div>
